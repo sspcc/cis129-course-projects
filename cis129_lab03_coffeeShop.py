@@ -92,4 +92,5 @@ print("---------")
 # Printing the total cost of the coffees and muffins including tax formatted to include
 # two decimal places.
 print(f"Total: $ {total_cost + tax:.2f}")
-print("***************************************")
+print("***************************************\n")
+print("Thank you for choosing us! See you soon!")
