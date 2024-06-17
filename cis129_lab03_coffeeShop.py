@@ -5,11 +5,15 @@
 
 print("***************************************")
 print("My Coffee and Muffin Shop")
-# How many coffees and muffins are being bought.
+# How many coffees, muffins, cookies, and/or cookies are being bought.
 numberofCoffeesBought = input("Number of coffees bought? ")
 print(numberofCoffeesBought)
 numberofMuffinsBought = input("Number of muffins bought? ")
 print(numberofMuffinsBought)
+numberofDonutsBought = input("Number of donuts bought? ")
+print(numberofDonutsBought)
+numberofCookiesBought = input("Number of cookies bought? ")
+print(numberofCookiesBought)
 print("***************************************\n")
 print("***************************************")
 print("My Coffee and Muffin Shop Receipt")
@@ -43,9 +47,40 @@ else:
 # decimal places.
 print(f"{numberofMuffinsBought} {muffin_number} at $4 each: $ " +
     f"{int(numberofMuffinsBought) * 4:.2f}")
-# Gathering the total cost of the coffees and muffins and assigning them to total_cost.
-total_cost = (int(numberofCoffeesBought) * 5) + (int(numberofMuffinsBought) *
-                                                 4)
+# Using the string (numberofDonutsBought) and converting it into an integer to retrieve
+# how many donuts were bought and if the number is equal to 1, then the word "Donut"
+# will be used. If the number is not 1, then the word "Donuts" will be used."
+if int(numberofDonutsBought) == 1:
+    donut_number = "Donut"
+else:
+    donut_number = "Donuts"
+# Using a function to pull the input of "numberofDonutsBought" to determine the
+# quantity of donuts purchased and then using {donut_number} to retrieve the word
+# "Donut" or "Donuts" to be used in the print statement. int(numberofDonutsBought) is
+# used to convert the string to an integer which multiplies the integer by the price of
+# the donut (3) and :.2f is used to format the cost of the donut(s) to include two
+# decimal places.
+print(f"{numberofDonutsBought} {donut_number} at $3 each: $ " +
+    f"{int(numberofDonutsBought) * 3:.2f}")
+# Using the string (numberofCookiesBought) and converting it into an integer to retrieve
+# how many coffees were bought and if the number is equal to 1, then the word "Cookie"
+# will be used. If the number is not 1, then the word "Cookies" will be used."
+if int(numberofCookiesBought) == 1:
+    cookie_number = "Cookie"
+else:
+    cookie_number = "Cookies"
+# Using a function to pull the input of "numberofCookiesBought" to determine the
+# quantity of coffees purchased and then using {cookie_number} to retrieve the word
+# "Coookie" or "Cookies" to be used in the print statement. int(numberofCookiesBought)
+# is used to convert the string to an integer which multiplies the integer by the price
+# of the coffee (1) and :.2f is used to format the cost of the coffee(s) to include two
+# decimal places.
+print(f"{numberofCookiesBought} {cookie_number} at $1 each: $ " +
+    f"{int(numberofCookiesBought) * 1:.2f}")
+# Gathering the total cost of the coffees, muffins, donuts and cookies and assigning
+# them to total_cost.
+total_cost = (int(numberofCoffeesBought) * 5) + (int(numberofMuffinsBought) * 4
+    + (int(numberofDonutsBought) * 3) + (int(numberofCookiesBought) * 1))
 # Gathering the input from total_cost and multiplying it by .06 (the current tax rate)
 # to get the tax amount. This value is assigned to the word tax and it is then formatted
 # it to include two decimal places.
