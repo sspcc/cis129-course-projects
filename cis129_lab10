@@ -1,0 +1,89 @@
+# Saul Soria
+# CIS 129 Module 11 Lab
+# 07/22/2024
+# Programs for exercises 9.1, 9.2, and 9.3 in Deitel & Deitel
+
+# Exercise 9.1
+# Initialize variables
+total = 0 # sum of grades
+grade_counter = 0 # number of grades entered
+
+# Read grades from selected file
+with open("grades.txt", "r") as file:
+    for line in file:
+        grade = int(line.strip())
+        if grade == -1:
+            break
+        total += grade
+        grade_counter += 1
+
+# Calculate average grade
+if grade_counter != 0:
+    average = total / grade_counter
+    print(f"The class average is {average:.2f}")
+else:
+    print("No grades were entered")
+
+# Exercise 9.2
+# Initialize variables
+total = 0 # sum of grades
+grade_counter = 0 # number of grades entered
+grades = [] # stores individual grades as a list
+
+# Read grades from selected file and calculate total
+with open("grades.txt", "r") as file:
+    for line in file:
+        grade = int(line.strip())
+        if grade == -1:
+            break
+        grades.append(grade)
+        total += grade
+        grade_counter += 1
+
+# Calculate average grade
+if grade_counter != 0:
+    average = total / grade_counter
+else:
+    average = 0
+
+# Display results
+print("Individual grades:")
+for grade in grades:
+    print(grade)
+
+print(f"Total of {grade_counter} grades is {total}")
+print(f"The class average is {average:.2f}")
+
+# Exercise 9.3
+import csv
+
+# Function to gather student information and write it to the CSV file
+def write_grades_to_csv(filename):
+    # Open the CSV file in write mode
+    with open(filename, "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        
+        # Write header row
+        writer.writerow(["firstname", "lastname", "exam1grade", "exam2grade", "exam3grade"])
+        
+        # Loop to input multiple students
+        while True:
+            # Input student's first name, last name, and exam grades
+            first_name = input("Enter the student's first name (or 'q' to quit): ").strip()
+            if first_name.lower() == "q":
+                break
+            
+            last_name = input("Enter student's last name: ").strip()
+            exam1 = int(input("Enter 1st exam grade: "))
+            exam2 = int(input("Enter 2nd exam grade: "))
+            exam3 = int(input("Enter 3rd exam grade: "))
+            
+            # Write student record to CSV file
+            writer.writerow([first_name, last_name, exam1, exam2, exam3])
+            
+            print(f"Record for {first_name} {last_name} has been added.")
+    
+    print(f"Data has been saved to {filename}")
+
+# Execute write_grades_to_csv function and save to CSV file
+write_grades_to_csv("grades.csv")
